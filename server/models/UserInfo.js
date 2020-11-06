@@ -6,5 +6,6 @@ const UserInfo = new Schema({
   timeOfJoining: String,
   googleId: String,
   lastVisit: String,
+  email: String,
 });
 mongoose.model("users", UserInfo);
