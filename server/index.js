@@ -1,11 +1,16 @@
 const express = require("express");
 const app = express();
+const mongoose = require("mongoose");
 const session = require("express-session");
 const cors = require("cors");
 const morgan = require("morgan");
 const passport = require("passport");
 const bodyParser = require("body-parser");
-require("./services/PassportOauth");
+require("./models/UserInfo");
+require("./Services/PassportOauth");
+const keys = require("./config/keys");
+
+mongoose.connect(keys.mongoURI);
 
 app.use(
   cors({
@@ -24,15 +29,12 @@ app.use(
   })
 );
 app.use(bodyParser.urlencoded({ extended: false }));
-// app.get("/", function (req, res) {
-//   res.render("pages/auth");
-// });
 
 app.use(passport.initialize());
 app.use(passport.session());
 
 app.set("view engine", "ejs");
-require("./routes/authRoutes.js")(app);
+require("./Routes/authRoutes.js")(app);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log("App listening on port " + port));

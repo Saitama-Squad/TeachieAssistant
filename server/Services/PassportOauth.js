@@ -1,25 +1,36 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+const keys = require("../config/keys");
+const mongoose = require("mongoose");
+
+const User = mongoose.model("users");
 passport.serializeUser(function (user, cb) {
-  cb(null, user);
+  cb(null, user.id);
 });
 
-passport.deserializeUser(function (obj, cb) {
-  cb(null, obj);
+passport.deserializeUser(function (id, cb) {
+  User.findById(id).then((user) => {
+    cb(null, user);
+  });
 });
-const GOOGLE_CLIENT_ID =
-  "393612896443-tslk46hcp9sn55f1k63ps9cbrkl6i8ic.apps.googleusercontent.com";
-const GOOGLE_CLIENT_SECRET = "VuqxVKSDJwjKTSHpl0m_k32c";
+
 passport.use(
   new GoogleStrategy(
     {
-      clientID: GOOGLE_CLIENT_ID,
-      clientSecret: GOOGLE_CLIENT_SECRET,
+      clientID: keys.GOOGLE_CLIENT_ID,
+      clientSecret: keys.GOOGLE_CLIENT_SECRET,
       callbackURL: "http://localhost:5000/auth/google/callback",
+      proxy: true,
     },
-    function (accessToken, refreshToken, profile, done) {
+    async (accessToken, refreshToken, profile, done) => {
       console.log(profile);
-      return done(null, profile);
+      const existingUser = await User.findOne({ googleId: profile.id });
+
+      if (existingUser) {
+        return done(null, existingUser);
+      }
+      const user = await new User({ googleId: profile.id }).save();
+      return done(null, user);
     }
   )
 );
