@@ -7,7 +7,6 @@ const passport = require("passport");
 const bodyParser = require("body-parser");
 require("./services/PassportOauth");
 
-app.set("view engine", "ejs");
 app.use(
   cors({
     origin: "http://localhost:3000",
@@ -25,11 +24,9 @@ app.use(
   })
 );
 app.use(bodyParser.urlencoded({ extended: false }));
-app.get("/", function (req, res) {
-  res.render("pages/auth");
-});
-
-var userProfile;
+// app.get("/", function (req, res) {
+//   res.render("pages/auth");
+// });
 
 app.use(passport.initialize());
 app.use(passport.session());

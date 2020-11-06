@@ -7,7 +7,6 @@ passport.serializeUser(function (user, cb) {
 passport.deserializeUser(function (obj, cb) {
   cb(null, obj);
 });
-var userProfile;
 const GOOGLE_CLIENT_ID =
   "393612896443-tslk46hcp9sn55f1k63ps9cbrkl6i8ic.apps.googleusercontent.com";
 const GOOGLE_CLIENT_SECRET = "VuqxVKSDJwjKTSHpl0m_k32c";
@@ -16,12 +15,11 @@ passport.use(
     {
       clientID: GOOGLE_CLIENT_ID,
       clientSecret: GOOGLE_CLIENT_SECRET,
-      callbackURL: "/auth/google/callback",
+      callbackURL: "http://localhost:5000/auth/google/callback",
     },
     function (accessToken, refreshToken, profile, done) {
-      userProfile = profile;
       console.log(profile);
-      return done(null, userProfile);
+      return done(null, profile);
     }
   )
 );
