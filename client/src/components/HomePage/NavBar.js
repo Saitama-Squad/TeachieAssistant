@@ -8,12 +8,12 @@ class ProfilePage extends Component {
       <div className="navbar-container">
         <div className="navbar">
           <div className="navbar-brand">
-            <Link to="/">WELCOME</Link>
+            <Link to="/">Welcome</Link>
           </div>
           <div className="navbar-menu">
             <div>
               <Link smooth to="/#home" className="navbar-menu-link btn-1">
-                PROFILE
+                Profile
               </Link>
             </div>
             <div>
@@ -22,7 +22,7 @@ class ProfilePage extends Component {
                 className="navbar-menu-link btn-1"
                 activeClassName="btn-1-active"
               >
-                LOGOUT
+                Logout
               </a>
             </div>
           </div>
