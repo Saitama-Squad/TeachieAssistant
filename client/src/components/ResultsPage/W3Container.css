@@ -1,3 +1,11 @@
-.def-container {
+.ntg-container {
   color: white;
+}
+.res-container {
+  margin-top: 10px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
 }

@@ -93,11 +93,11 @@
 .sb-button {
   cursor: pointer;
   position: absolute;
-  font-family: "Dancing Script", cursive;
+  font-family: "Montserrat", sans-serif;
   /* top: 28%;
   left: 50%;
   transform: translate(-50%, -50%); */
-  width: 100px;
+  width: 120px;
   height: 40px;
   text-align: center;
   line-height: 40px;

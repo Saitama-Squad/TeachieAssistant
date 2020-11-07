@@ -56,7 +56,7 @@ module.exports = (app) => {
     let getData = (html) => {
       data = [];
       const $ = cheerio.load(html);
-      $("div#leftmenuinner").each((i, elem) => {
+      $("div#leftmenuinnerinner > a").each((i, elem) => {
         data.push($(elem).text());
       });
       return data;

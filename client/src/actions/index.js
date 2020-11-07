@@ -19,7 +19,7 @@ export const fetchData = (term) => async (dispatch) => {
       type: FETCH_DATA,
       payload: response.data,
     });
-    console.log(tt);
+    console.log("history: " + tt);
     console.log(response.data[0]);
     history.push(`/home/${tt}`);
   } catch (error) {

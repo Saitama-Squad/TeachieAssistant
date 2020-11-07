@@ -13,6 +13,7 @@ class TotalData extends Component {
   };
   render() {
     let term = this.props.results[0];
+    console.log("totdata:" + term);
     return (
       <aside className="totaldatacontainer">
         <ul>
