@@ -12,6 +12,7 @@ class SearchBar extends Component {
     });
   }
   state = { word: null };
+
   onFormSubmit = (event) => {
     event.preventDefault();
     if (!this.state.word) {
@@ -52,11 +53,11 @@ class SearchBar extends Component {
               <div className="linkkwrapper">
                 <div className="lncontainer">
                   <Link
-                    to="/home"
-                    className="btn effect01"
+                    to={`/home/${this.state.word}`}
+                    className="sb-button button"
                     onClick={this.onFormSubmit}
                   >
-                    <span>Search!</span>
+                    Search!
                   </Link>
                 </div>
               </div>
@@ -69,7 +70,7 @@ class SearchBar extends Component {
     );
   }
 }
-const mapStateToProps = ({ results }) => {
-  return results;
+const mapStateToProps = (state) => {
+  return state;
 };
 export default connect(mapStateToProps, { fetchData })(SearchBar);

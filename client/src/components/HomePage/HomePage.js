@@ -9,7 +9,7 @@ class HomePage extends Component {
   render() {
     return (
       <div className="homepagecontainer">
-        <Particles
+        {/* <Particles
           id="tssparticles"
           options={{
             background: {
@@ -85,7 +85,7 @@ class HomePage extends Component {
             },
             detectRetina: true,
           }}
-        />
+        /> */}
         <div className="header-wrapper">
           <NavBar />
         </div>

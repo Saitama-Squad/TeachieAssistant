@@ -6,5 +6,8 @@ const UserInfo = new Schema({
   googleId: String,
   email: String,
   userImage: String,
+  currentGoals: Object,
+  completedGoals: Number,
+  goals: Object,
 });
 mongoose.model("users", UserInfo);

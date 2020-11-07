@@ -31,8 +31,12 @@ passport.use(
       }
       const user = await new User({
         googleId: profile.id,
-        name: profile.name.givenName + profile.name.familyName,
+        name: profile.displayName,
         email: profile.emails[0].value,
+        userImage: profile.photos[0].value,
+        currentGoals: { 0: "python" },
+        completedGoals: 2,
+        goals: { 0: "c++", 1: "python", 3: "xml" },
       }).save();
       return done(null, user);
     }
