@@ -12,7 +12,7 @@ class ProfilePage extends Component {
           </div>
           <div className="navbar-menu">
             <div>
-              <Link smooth to="/#home" className="navbar-menu-link btn-1">
+              <Link smooth to="/profile" className="navbar-menu-link btn-1">
                 Profile
               </Link>
             </div>

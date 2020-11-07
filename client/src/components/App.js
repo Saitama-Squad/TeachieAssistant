@@ -5,6 +5,7 @@ import { fetchUser } from "../actions/index";
 import LandingPage from "./LandingPage/LandingPage";
 import history from "../history";
 import HomePage from "./HomePage/HomePage";
+import ProfilePage from "./ProfilePage/ProfilePage";
 import "./App.css";
 
 class App extends Component {
@@ -18,6 +19,7 @@ class App extends Component {
         <Router history={history}>
           <Route path="/" exact component={LandingPage} />
           <Route path="/home" exact component={HomePage} />
+          <Route path="/profile" exact component={ProfilePage} />
         </Router>
       </div>
     );
