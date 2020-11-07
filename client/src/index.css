@@ -14,7 +14,9 @@ body {
 
 #tsparticles {
   position: fixed !important;
-  z-index: -999;
+  z-index: -90;
+  width: 100vw !important;
+  height: 100vh !important;
 }
 .tsparticles-canvas-el {
   position: fixed !important;
