@@ -1,0 +1,52 @@
+.homepagecontainer {
+  height: 100vh;
+  background-color: rgb(26, 29, 30) !important;
+  color: white;
+}
+.welcomecontainer {
+  padding-top: 10px;
+  padding-left: 10px;
+}
+.profilebuttontotalcontainer {
+  position: absolute;
+  top: 2.5%;
+  left: 94.5%;
+}
+.profilebuttoncontainer {
+  display: inline-block;
+  position: relative;
+}
+.profilebutton {
+  border: none !important;
+  width: 40px;
+  height: 40px;
+  background-image: url(https://www.flaticon.com/svg/static/icons/svg/709/709722.svg);
+  filter: invert(100%);
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+}
+.profilebuttoncontainer div {
+  background-color: rgb(26, 29, 30);
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  visibility: hidden;
+  transition: 0.2s;
+  position: absolute;
+  min-width: 100%;
+  opacity: 0;
+  transition: 0.1s;
+}
+.profilebuttoncontainer:hover div {
+  visibility: visible;
+  opacity: 1;
+}
+.profilebuttoncontainer div a {
+  display: block;
+  text-decoration: none;
+  padding: 5px;
+  color: rgb(255, 255, 255);
+}
+.profilebutton:hover {
+  width: 43px;
+  height: 43px;
+}

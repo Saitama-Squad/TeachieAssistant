@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./LandingPage.css";
 import { connect } from "react-redux";
+import ParticleJS from "./ParticleJS";
 
 class LandingPage extends Component {
   notLogged = () => {
@@ -65,9 +66,19 @@ class LandingPage extends Component {
   };
   render() {
     if (!this.props.auth) {
-      return <>{this.notLogged()}</>;
+      return (
+        <>
+          <ParticleJS />
+          {this.notLogged()}
+        </>
+      );
     } else {
-      return <>{this.logged()}</>;
+      return (
+        <>
+          <ParticleJS />
+          {this.logged()}
+        </>
+      );
     }
   }
 }

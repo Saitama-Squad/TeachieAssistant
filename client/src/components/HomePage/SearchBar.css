@@ -1,0 +1,150 @@
+.sbmain {
+  background-color: rgb(26, 29, 30);
+}
+.sb-container {
+  background-color: rgb(26, 29, 30);
+  font-style: italic;
+  max-width: 1200px;
+  width: 95%;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.sb-form {
+  background-color: rgb(255, 255, 255);
+  width: 60%;
+  height: 50px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+.sb-form input {
+  background-color: rgb(26, 29, 30);
+  cursor: text;
+  width: 100%;
+  height: 100%;
+  color: rgb(255, 255, 255);
+  padding-top: 20px;
+  border: none;
+  outline: none;
+}
+.sb-form label {
+  background-color: rgb(252, 252, 252);
+  background: transparent;
+  pointer-events: none;
+  position: absolute;
+  bottom: 0px;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  color: white;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  transition: border 0.3s ease;
+}
+@media screen and (max-width: 353px) {
+  .sb-form label {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 312px) {
+  .sb-form label {
+    font-size: 14px;
+  }
+
+  .sb-form input:focus + .sb-label-name .sb-content-name {
+    font-size: 13px;
+  }
+}
+.sb-form label::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: -1px;
+  height: 100%;
+  width: 100%;
+  border-bottom: 1.5px solid rgba(255, 0, 0, 0.6);
+  transform: translateX(-100%);
+}
+.sb-content-name {
+  background-color: rgb(26, 29, 30);
+  color: rgba(255, 255, 255, 0.281);
+  position: absolute;
+  bottom: 5px;
+  left: 0px;
+  transition: all 0.3s ease;
+}
+.sb-form input:focus + .sb-label-name .sb-content-name {
+  transform: translateY(-150%);
+  font-style: normal;
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+}
+.sb-form input:focus + .sb-label-name::after {
+  transform: translateX(0%);
+}
+.linkwrapper {
+  position: relative;
+  margin-top: 20px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sb-button {
+  cursor: pointer;
+  position: absolute;
+  font-family: "Dancing Script", cursive;
+  /* top: 28%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  width: 100px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  color: #fff;
+  font-size: 24px;
+  text-decoration: none;
+  box-sizing: border-box;
+  background: linear-gradient(90deg, #03a9f4, #f441a4, #ffeb3b, #03a9f4);
+  background-size: 400%;
+  border-radius: 5px;
+  z-index: 1;
+  font-style: normal;
+}
+
+.sb-button:hover {
+  animation: animate 8s linear infinite;
+}
+@keyframes animate {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
+}
+.sb-button:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  right: -5px;
+  left: -5px;
+  z-index: -1;
+  background: linear-gradient(90deg, #03a9f4, #f441a4, #ffeb3b, #03a9f4);
+  background-size: 400%;
+  border-radius: 20px;
+  filter: blur(10px);
+  opacity: 0;
+  transition: 0.5s;
+}
+.sb-button:hover:before {
+  filter: blur(10px);
+  opacity: 0.7;
+  animation: animate 8s linear infinite;
+}
+
+.drpdn {
+  margin: 10px auto;
+  width: 180px;
+}
