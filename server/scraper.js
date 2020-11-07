@@ -1,11 +1,16 @@
 const Nightmare = require("nightmare");
 const cheerio = require("cheerio");
 const nightmare = Nightmare({ show: true });
-const url = "https://www.udemy.com/course/julialang/";
+// const url = "https://www.udemy.com/course/julialang/";
 
 nightmare
-  .goto(url)
-  .wait("body")
+  .goto("https://duckduckgo.com")
+  .type("#search_form_input_homepage", "mern udemy")
+  .click("#search_button_homepage")
+  .wait("#r1-0 a.result__a")
+  .click("#r1-0 a.result__a")
+  .wait(".course-card--image-wrapper--Sxd90 img")
+  .click(".course-card--image-wrapper--Sxd90 img")
   .click('button[data-purpose="expand-toggle"]')
   .evaluate(() => document.querySelector("body").innerHTML)
   .end()

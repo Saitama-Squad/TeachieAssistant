@@ -1,5 +1,4 @@
 const prompt = require("prompt-sync")();
-
 const https = require("https");
 const { url } = require("inspector");
 const SUBSCRIPTION_KEY = "3aa21a3a5e364924a9d61d1d3b6a23b4";

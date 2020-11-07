@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./SearchBar.css";
 import { connect } from "react-redux";
-// import { getDefinitions } from "../../actions";
+import { fetchData } from "../../actions";
 import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -20,11 +20,9 @@ class SearchBar extends Component {
     } else {
       this.setState({ word: "" });
       this.mainForm.reset();
-      //   this.props.getDefinitions(this.state.word);
+      this.props.fetchData(this.state.word);
     }
   };
-  //   options = ["Definitions", "Pronunciations", "Examples"];
-  //   defaultOption = this.options[0];
   render() {
     return (
       <div className="sbmain">
@@ -70,5 +68,7 @@ class SearchBar extends Component {
     );
   }
 }
-
-export default connect(null)(SearchBar);
+const mapStateToProps = (state) => {
+  return state.results;
+};
+export default connect(mapStateToProps, { fetchData })(SearchBar);
