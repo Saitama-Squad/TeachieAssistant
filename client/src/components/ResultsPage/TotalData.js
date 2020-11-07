@@ -26,7 +26,7 @@ class TotalData extends Component {
             </Link>
           </li>
         </ul>
-        <div className="instruct">Click any one of 'em!</div>
+        {/* <div className="instruct">Click any one of 'em!</div> */}
       </aside>
     );
   }

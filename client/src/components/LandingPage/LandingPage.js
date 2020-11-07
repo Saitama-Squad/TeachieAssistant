@@ -2,19 +2,14 @@ import React, { Component } from "react";
 import "./LandingPage.css";
 import { connect } from "react-redux";
 import ParticleJS from "./ParticleJS";
+import DoodleContainer from "./doodleContainer";
 
 class LandingPage extends Component {
   notLogged = () => {
     return (
       <div className="landingpagecontainer">
-        <div className="leftcontainer">
-          <div className="linkkwrapper">
-            <div className="lncontainer">
-              <a href="http://localhost:3000" className="btn effect01">
-                <span>Logo</span>
-              </a>
-            </div>
-          </div>
+        <div className="leftcontainer rightdoodlecontainer">
+          <DoodleContainer />
         </div>
         <div className="rightcontainer">
           <h2>Login To Explore The World Of Possibilities</h2>

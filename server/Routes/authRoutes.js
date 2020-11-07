@@ -39,8 +39,14 @@ module.exports = (app) => {
     term = term.replace(/\s/g, "-");
     console.log(term);
     console.log("web scraping");
+
+    // .goto(`https://www.w3schools.com/${term}`)
     nightmare
-      .goto(`https://www.w3schools.com/${term}`)
+      .goto("https://duckduckgo.com")
+      .type("#search_form_input_homepage", `${term} site:w3schools.com`)
+      .click("#search_button_homepage")
+      .wait("#r1-0 a.result__a")
+      .click("#r1-0 a.result__a")
       .wait("body")
       .evaluate(() => document.querySelector("body").innerHTML)
       .end()

@@ -3,10 +3,11 @@
   height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   position: relative;
 }
 .rightcontainer {
+  margin-left: 10%;
   height: 20vh;
   display: flex;
   position: relative;
@@ -74,7 +75,12 @@
   background-color: #fff;
   box-shadow: 0px 0px 0px 4px #eee inset;
 }
-
+.rightdoodlecontainer {
+  color: white;
+  z-index: 999;
+  width: 30%;
+  height: 100%;
+}
 /*btn_text*/
 .effect01 span {
   transition: all 0.2s ease-out;

@@ -54,10 +54,10 @@ class SearchBar extends Component {
                 <div className="lncontainer">
                   <Link
                     to={`/home/${this.state.word}`}
-                    className="sb-button button"
+                    className="btn effect01"
                     onClick={this.onFormSubmit}
                   >
-                    Search!
+                    <span>Search!</span>
                   </Link>
                 </div>
               </div>
