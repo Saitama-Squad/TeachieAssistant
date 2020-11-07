@@ -7,19 +7,12 @@ export const fetchUser = () => async (dispatch) => {
 };
 
 export const fetchData = (term) => async (dispatch) => {
-  const response = await axios.get("/home/results");
-  console.log(response);
-  dispatch({ type: FETCH_DATA, payload: response.data });
   try {
-    const response = await axios.get(`/home/results`, {
-      q: {
-        word: term,
-      },
-    });
+    const response = await axios.get(`/results/${term}`);
     console.log(response);
     dispatch({
-      type: "DATA_OF_WORD",
-      payload: response.data.results[0].lexicalEntries,
+      type: FETCH_DATA,
+      payload: response.data,
     });
   } catch (error) {
     dispatch({

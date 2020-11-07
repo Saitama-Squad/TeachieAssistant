@@ -34,12 +34,14 @@ module.exports = (app) => {
   app.get("/success", (req, res) => res.send("success"));
   app.get("/error", (req, res) => res.send("error logging in"));
 
-  app.get("/home/results", (req, res) => {
-    let term = req.query[0];
-    console.log(req.query);
+  app.get("/results/:word", (req, res) => {
+    let term = req.params.word;
+    term = term.replace(/\s/g, "-");
+    console.log(term);
+    console.log("web scraping");
     nightmare
       .goto("https://duckduckgo.com")
-      .type("#search_form_input_homepage", "mern udemy")
+      .type("#search_form_input_homepage", `top ${term} udemy courses online`)
       .click("#search_button_homepage")
       .wait("#r1-0 a.result__a")
       .click("#r1-0 a.result__a")

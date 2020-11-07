@@ -10,7 +10,7 @@ require("./models/UserInfo");
 require("./Services/PassportOauth");
 const keys = require("./config/keys");
 
-mongoose.connect(keys.mongoURI);
+mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
 
 app.use(
   cors({

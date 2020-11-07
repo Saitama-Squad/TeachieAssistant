@@ -52,8 +52,9 @@ class SearchBar extends Component {
               <div className="linkkwrapper">
                 <div className="lncontainer">
                   <Link
-                    href="http://localhost:5000/api/logout"
+                    to="/home"
                     className="btn effect01"
+                    onClick={this.onFormSubmit}
                   >
                     <span>Search!</span>
                   </Link>
@@ -68,7 +69,7 @@ class SearchBar extends Component {
     );
   }
 }
-const mapStateToProps = (state) => {
-  return state.results;
+const mapStateToProps = ({ results }) => {
+  return results;
 };
 export default connect(mapStateToProps, { fetchData })(SearchBar);
