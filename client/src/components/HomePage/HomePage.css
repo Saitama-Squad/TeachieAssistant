@@ -1,13 +1,25 @@
 .homepagecontainer {
   height: 100vh;
-  background-color: rgb(26, 29, 30) !important;
+  background-color: black !important;
   color: white;
 }
+
+.header-wrapper {
+  position: fixed;
+  top: 2%;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  z-index: 999;
+}
+
 .welcomecontainer {
   padding-top: 10px;
   padding-left: 10px;
 }
-.profilebuttontotalcontainer {
+.homepage {
+  padding-top: 5%;
+}
+/* .profilebuttontotalcontainer {
   position: absolute;
   top: 2.5%;
   left: 94.5%;
@@ -26,7 +38,7 @@
   transition: all 0.1s ease-in;
 }
 .profilebuttoncontainer div {
-  background-color: rgb(26, 29, 30);
+  background-color: black;
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1;
   visibility: hidden;
@@ -49,4 +61,4 @@
 .profilebutton:hover {
   width: 43px;
   height: 43px;
-}
+} */
