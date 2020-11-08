@@ -28,6 +28,8 @@ app.use(
     secret: "SECRET",
   })
 );
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(passport.initialize());

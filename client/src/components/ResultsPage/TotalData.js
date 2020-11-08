@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./TotalData.css";
 import { Link } from "react-router-dom";
+import { addGoals } from "../../actions";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { connect } from "react-redux";
@@ -11,9 +12,14 @@ class TotalData extends Component {
       duration: 1000,
     });
   };
+  state = { word: null };
+  onButtonClick = () => {
+    console.log("button: " + this.props.results[0] + this.props.auth.googleId);
+    this.props.addGoals(this.props.results[0], this.props.auth.googleId);
+  };
   render() {
     let term = this.props.results[0];
-    console.log("totdata:" + term);
+    console.log("totdata:" + this.props.auth);
     return (
       <aside className="totaldatacontainer">
         <ul>
@@ -26,12 +32,17 @@ class TotalData extends Component {
             </Link>
           </li>
         </ul>
+        <div className="addgoalcontainer">
+          <button className="addgoal" onClick={this.onButtonClick}>
+            {term ? "Add " + term.toUpperCase() + "To Goals?" : term}
+          </button>
+        </div>
         {/* <div className="instruct">Click any one of 'em!</div> */}
       </aside>
     );
   }
 }
-const mapStateToProps = ({ results }) => {
-  return { results: results };
+const mapStateToProps = ({ results, auth }) => {
+  return { results: results, auth: auth };
 };
-export default connect(mapStateToProps)(TotalData);
+export default connect(mapStateToProps, { addGoals })(TotalData);

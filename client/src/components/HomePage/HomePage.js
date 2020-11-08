@@ -4,9 +4,22 @@ import Particles from "react-particles-js";
 import Icon from "./Icon";
 import "./HomePage.css";
 import NavBar from "./NavBar";
+import NewsAPI from "newsapi";
 
 class HomePage extends Component {
   render() {
+    // const newsapi = new NewsAPI("e17a903971b3486fb9dbdc0ab6a798b4", {
+    //   corsProxyUrl: "https://cors-anywhere.herokuapp.com/",
+    // });
+    // newsapi.v2
+    //   .sources({
+    //     category: "technology",
+    //     language: "en",
+    //     country: "in",
+    //   })
+    //   .then((response) => {
+    //     console.log(response);
+    //   });
     return (
       <div className="homepagecontainer">
         <Particles

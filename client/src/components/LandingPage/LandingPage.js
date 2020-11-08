@@ -32,14 +32,8 @@ class LandingPage extends Component {
   logged = () => {
     return (
       <div className="landingpagecontainer">
-        <div className="leftcontainer">
-          <div className="linkkwrapper">
-            <div className="lncontainer">
-              <a href="http://localhost:3000" className="btn effect01">
-                <span>Logo</span>
-              </a>
-            </div>
-          </div>
+        <div className="leftcontainer rightdoodlecontainer">
+          <DoodleContainer />
         </div>
         <div className="rightcontainer">
           <h2>Login To Explore The World Of Possibilities</h2>

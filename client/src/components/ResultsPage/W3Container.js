@@ -10,9 +10,15 @@ class W3Container extends Component {
     if (this.props.results) {
       if (this.props.results.length > 0) {
         return (
-          <ol className="res-container" data-aos="fade-up">
-            <ResultsSplitter data={this.props.results} />
-          </ol>
+          <div className="totalres">
+            <ul
+              className="res-container"
+              data-aos="fade-up"
+              data-aos-offset="50"
+            >
+              <ResultsSplitter data={this.props.results} />
+            </ul>
+          </div>
         );
       } else {
         return (

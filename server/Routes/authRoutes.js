@@ -1,7 +1,10 @@
 const passport = require("passport");
 const Nightmare = require("nightmare");
 const cheerio = require("cheerio");
-
+const mongoose = require("mongoose");
+const keys = require("../config/keys");
+var i = 10;
+mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
 module.exports = (app) => {
   app.get("/", function (req, res) {
     res.render("pages/auth");
@@ -33,6 +36,20 @@ module.exports = (app) => {
   app.get("/success", (req, res) => res.send("success"));
   app.get("/error", (req, res) => res.send("error logging in"));
 
+  app.put("/addgoals/:word/:id", async (req, res) => {
+    const User = mongoose.model("users");
+    console.log(req.params.id + req.params.word);
+    const existingUser = await User.findOne({ googleId: req.params.id });
+    if (existingUser) {
+      let n = Object.keys(existingUser.goals).length + 2;
+      console.log(n);
+      existingUser.goals = { ...existingUser.goals, i: req.params.word };
+      existingUser.save();
+    }
+    console.log(existingUser);
+    res.send("success");
+  });
+
   app.get("/results/:word", (req, res) => {
     const nightmare = Nightmare({ show: true });
     let term = req.params.word;
@@ -48,6 +65,7 @@ module.exports = (app) => {
       .wait("#r1-0 a.result__a")
       .click("#r1-0 a.result__a")
       .wait("body")
+      .wait(2000)
       .evaluate(() => document.querySelector("body").innerHTML)
       .end()
       .then((response) => {

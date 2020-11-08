@@ -6,34 +6,34 @@ class NewsApi extends Component {
     const newsapi = new NewsAPI("e17a903971b3486fb9dbdc0ab6a798b4");
     var data1, data2, data3;
 
-    newsapi.v2
-      .topHeadlines({
-        //sources: 'bbc-news,the-verge',
-        q: "Computer",
-        category: "technology",
-        //language: 'en',
-        //country: 'in'
-      })
-      .then((response) => {
-        console.log(response);
-      }); //otherwise use  console.log(response);
+    // newsapi.v2
+    //   .topHeadlines({
+    //     q: "Computer",
+    //     category: "technology",
+    //     sortBy: "relevancy",
+    //     //language: 'en',
+    //     //country: 'in'
+    //   })
+    //   .then((response) => {
+    //     console.log(response);
+    //   }); //otherwise use  console.log(response);
 
     // To query /v2/everything
     // You must include at least one q, source, or domain
-    newsapi.v2
-      .everything({
-        q: "Computer",
-        sources: "bbc-news,the-verge",
-        domains: "bbc.co.uk, techcrunch.com",
-        //from: '2020-10-07',
-        //to: '2020-11-07',
-        language: "en",
-        sortBy: "popularity",
-        page: 1,
-      })
-      .then((response) => {
-        console.log(response);
-      }); //otherwise use  console.log(response);
+    // newsapi.v2
+    //   .everything({
+    //     q: "Computer",
+    //     sources: "bbc-news,the-verge",
+    //     domains: "bbc.co.uk, techcrunch.com",
+    //     //from: '2020-10-07',
+    //     //to: '2020-11-07',
+    //     language: "en",
+    //     sortBy: "popularity",
+    //     page: 1,
+    //   })
+    //   .then((response) => {
+    //     console.log(response);
+    //   }); //otherwise use  console.log(response);
 
     // To query sources
     // All options are optional
