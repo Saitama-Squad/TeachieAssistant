@@ -12,6 +12,7 @@ class LandingPage extends Component {
           <DoodleContainer />
         </div>
         <div className="rightcontainer">
+          <h1 className="headingg">Teachie Assistant</h1>
           <h2>Login To Explore The World Of Possibilities</h2>
           <div className="loginwrapper">
             <div className="linkkwrapper">
@@ -36,6 +37,7 @@ class LandingPage extends Component {
           <DoodleContainer />
         </div>
         <div className="rightcontainer">
+          <h1>Teachie Assistant</h1>
           <h2>Login To Explore The World Of Possibilities</h2>
           <div className="loginwrapper">
             <div className="linkkwrapper">

@@ -51,7 +51,7 @@ module.exports = (app) => {
   });
 
   app.get("/results/:word", (req, res) => {
-    const nightmare = Nightmare({ show: true });
+    const nightmare = Nightmare({ show: false });
     let term = req.params.word;
     term = term.replace(/\s/g, "-");
     console.log(term);

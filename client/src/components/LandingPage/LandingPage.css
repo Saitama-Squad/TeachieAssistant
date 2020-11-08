@@ -13,6 +13,7 @@
   position: relative;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
 }
 .rightcontainer h2 {
   color: #fff;
@@ -122,4 +123,14 @@
   justify-content: space-evenly;
   align-items: flex-start;
   height: 120%;
+}
+
+.headingg {
+  color: white;
+  background: linear-gradient(to left, #44eec7 0%, #6393d6 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Dancing Script", cursive;
+  font-size: 85px;
+  margin-bottom: 20px;
 }
