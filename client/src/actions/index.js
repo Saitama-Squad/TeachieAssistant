@@ -13,13 +13,14 @@ export const fetchData = (term) => async (dispatch) => {
     let tt = term;
     console.log("term: " + term);
     const response = await axios.get(`/results/${term}`);
+    response.data = [term, ...response.data];
+    console.log("fetchresponse: " + response.data[0]);
     console.log(response);
     dispatch({
       type: FETCH_DATA,
       payload: response.data,
     });
     console.log("history: " + tt);
-    console.log(response.data[0]);
     history.push(`/home/${tt}`);
   } catch (error) {
     dispatch({
@@ -40,9 +41,8 @@ export const addGoals = (term, id) => async (dispatch) => {
       type: ADD_GOALS,
       payload: response.data,
     });
-    console.log("history: " + tt);
     console.log("goals data: " + response.data);
-    history.push(`/home/${tt}`);
+    history.push(`/home/${tt}/w3`);
   } catch (error) {
     dispatch({
       type: "ERROR",

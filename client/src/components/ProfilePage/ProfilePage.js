@@ -145,6 +145,10 @@ class ProfilePage extends Component {
                     </h3>
                     {this.renderAllGoals("goals")}
                   </div>
+                  <div>
+                    If You Have Added Any new goals, Logout and Login Again to
+                    Refresh The Data.
+                  </div>
                 </>
               ) : (
                 <div>Login First</div>

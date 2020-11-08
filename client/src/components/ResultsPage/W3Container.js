@@ -5,8 +5,6 @@ import "./W3Container.css";
 
 class W3Container extends Component {
   render() {
-    let x = this.props.results.shift();
-    console.log("w3: " + x);
     if (this.props.results) {
       if (this.props.results.length > 0) {
         return (

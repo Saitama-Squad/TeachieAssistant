@@ -6,6 +6,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { connect } from "react-redux";
 
+let butTerm = null;
 class TotalData extends Component {
   componentDidMount = () => {
     AOS.init({
@@ -14,12 +15,14 @@ class TotalData extends Component {
   };
   state = { word: null };
   onButtonClick = () => {
+    butTerm = null;
+    this.setState({ word: "Goal Added😊" });
     console.log("button: " + this.props.results[0] + this.props.auth.googleId);
     this.props.addGoals(this.props.results[0], this.props.auth.googleId);
   };
   render() {
     let term = this.props.results[0];
-    console.log("totdata:" + this.props.auth);
+    butTerm = term;
     return (
       <aside className="totaldatacontainer">
         <ul>
@@ -33,9 +36,13 @@ class TotalData extends Component {
           </li>
         </ul>
         <div className="addgoalcontainer">
-          <button className="addgoal" onClick={this.onButtonClick}>
-            {term ? "Add " + term.toUpperCase() + "To Goals?" : term}
-          </button>
+          {butTerm ? (
+            <button className="button" onClick={this.onButtonClick}>
+              {term ? "Add " + term.toUpperCase() + " To Goals?" : term}
+            </button>
+          ) : (
+            <div></div>
+          )}
         </div>
         {/* <div className="instruct">Click any one of 'em!</div> */}
       </aside>
