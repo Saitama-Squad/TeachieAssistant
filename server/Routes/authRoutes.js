@@ -43,7 +43,7 @@ module.exports = (app) => {
     if (existingUser) {
       let n = Object.keys(existingUser.goals).length + 2;
       console.log(n);
-      existingUser.goals = { ...existingUser.goals, d: req.params.word };
+      existingUser.goals = { ...existingUser.goals, n: req.params.word };
       existingUser.save();
     }
     console.log(existingUser);

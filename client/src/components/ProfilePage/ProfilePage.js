@@ -27,6 +27,26 @@ class ProfilePage extends Component {
       });
     }
   };
+  renderCard = (h2Text, topic, relation) => {
+    return (
+      <>
+        <div class="courses-container">
+          <div class="course">
+            <div class="course-preview">
+              <h2>{h2Text}</h2>
+              <a href="#">
+                View all chapters <i class="fas fa-chevron-right"></i>
+              </a>
+            </div>
+            <div class="course-info">
+              <h6 style={{ color: "black" }}>{relation}</h6>
+              <h2 style={{ color: "black" }}>{topic}</h2>
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  };
   render() {
     console.log(this.props.auth);
     return (
@@ -127,28 +147,21 @@ class ProfilePage extends Component {
             <div className="detailsdiv">
               {this.props.auth ? (
                 <>
-                  <div className="curgoals">
-                    <h3 className="remgoals">
-                      Goals Remaining:{" "}
-                      {Object.keys(this.props.auth.currentGoals).length}
-                    </h3>
-                    {this.renderRemGoals()}
-                  </div>
-                  <div className="completedgoals">
-                    <h3 className="donegoals">
-                      Goals Completed:{this.props.auth.completedGoals}
-                    </h3>
-                  </div>
-                  <div className="allgoals">
-                    <h3 className="allgoals">
-                      All Goals:{Object.keys(this.props.auth.goals).length}
-                    </h3>
-                    {this.renderAllGoals("goals")}
-                  </div>
-                  <div>
+                  {this.renderCard(
+                    "Goals Remaining: " +
+                      Object.keys(this.props.auth.currentGoals).length,
+                    this.renderRemGoals(),
+                    "Programming"
+                  )}
+                  {this.renderCard(
+                    "Goals Completed: " + this.props.auth.completedGoals,
+                    this.renderAllGoals("goals"),
+                    "All Goals: " + Object.keys(this.props.auth.goals).length
+                  )}
+                  <h4>
                     If You Have Added Any new goals, Logout and Login Again to
                     Refresh The Data.
-                  </div>
+                  </h4>
                 </>
               ) : (
                 <div>Login First</div>
