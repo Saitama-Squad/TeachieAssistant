@@ -1,0 +1,24 @@
+.myphoto-container {
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.myphoto {
+  width: 23.5%;
+  height: 23.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 40px;
+}
+
+#myphotojpg {
+  width: 100%;
+  height: auto;
+  /* box-shadow: 0 0px 10px rgba(0, 0, 0, 0.56), 0 0px 20px rgba(0, 0, 0, 0.56),
+    0 0px 30px rgba(0, 0, 0, 0.56); */
+}
+.innerContainer {
+  transition: transform 0.2s;
+}

@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+.homepagecontainer {
+  height: 80vh;
+  color: white;
+}
+
+.header-wrapper {
+  position: fixed;
+  top: 2%;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  z-index: 999;
+}
+
+.welcomecontainer {
+  padding-top: 10px;
+  padding-left: 10px;
+}
+.homepage {
+  padding-top: 5%;
+}
+/* .profilebuttontotalcontainer {
+  position: absolute;
+  top: 2.5%;
+  left: 94.5%;
+}
+.profilebuttoncontainer {
+  display: inline-block;
+  position: relative;
+}
+.profilebutton {
+  border: none !important;
+  width: 40px;
+  height: 40px;
+  background-image: url(https://www.flaticon.com/svg/static/icons/svg/709/709722.svg);
+  filter: invert(100%);
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+}
+.profilebuttoncontainer div {
+  background-color: black;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  visibility: hidden;
+  transition: 0.2s;
+  position: absolute;
+  min-width: 100%;
+  opacity: 0;
+  transition: 0.1s;
+}
+.profilebuttoncontainer:hover div {
+  visibility: visible;
+  opacity: 1;
+}
+.profilebuttoncontainer div a {
+  display: block;
+  text-decoration: none;
+  padding: 5px;
+  color: rgb(255, 255, 255);
+}
+.profilebutton:hover {
+  width: 43px;
+  height: 43px;
+} */
