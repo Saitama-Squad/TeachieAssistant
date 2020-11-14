@@ -20,14 +20,14 @@ module.exports = (app) => {
     "/auth/google/callback",
     passport.authenticate("google", { failureRedirect: "/error" }),
     function (req, res) {
-      res.redirect("http://localhost:3000/home");
+      res.redirect("https://hidden-forest-85036.herokuapp.com//home");
     }
   );
   app.get("/api/logout", (req, res) => {
     req.logout();
     console.log(req.query);
     console.log("Logged out");
-    res.redirect("/home");
+    res.redirect("https://hidden-forest-85036.herokuapp.com/");
   });
 
   app.get("/api/current_user", (req, res) => {
