@@ -39,7 +39,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.set("view engine", "ejs");
+app.set("view engine", "html");
 require("./Routes/authRoutes.js")(app);
 
 if (process.env.NODE_ENV === "production") {
