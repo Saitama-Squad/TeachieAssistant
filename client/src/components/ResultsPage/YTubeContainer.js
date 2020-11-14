@@ -2,14 +2,26 @@ import React, { Component } from "react";
 import "./YTubeContainer.css";
 import ResultsSplitter from "./ResultsSplitter";
 import { connect } from "react-redux";
+
 class YTubeContainer extends Component {
   render() {
-    if (this.result.length > 0) {
-      return (
-        <div className="def-container" data-aos="fade-right">
-          <ResultsSplitter data={this.result} keyid={this.resultid} />
-        </div>
-      );
+    let x = this.props.ytresults.shift();
+    console.log("w3: " + x);
+    if (this.props.ytresults) {
+      if (this.props.ytresults.length > 0) {
+        return (
+          <ol className="res-container" data-aos="fade-up">
+            <ResultsSplitter data={this.props.ytresults} />
+          </ol>
+        );
+      } else {
+        return (
+          <div className="ntg-container" data-aos="fade-up">
+            😕Nothing to show here.Search anything different or reload the
+            page!😕
+          </div>
+        );
+      }
     } else {
       return (
         <div className="ntg-container" data-aos="fade-up">
@@ -20,6 +32,6 @@ class YTubeContainer extends Component {
   }
 }
 const mapStateToProps = (state) => {
-  return { results: state.results };
+  return { ytresults: state.ytresults };
 };
 export default connect(mapStateToProps)(YTubeContainer);

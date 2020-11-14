@@ -1,4 +1,5 @@
 # Teachie Assistant
+
 If you want to start the project, open 2 terminal windows change directory into client and server.
 
 Run the command "npm install" in both the terminals.
