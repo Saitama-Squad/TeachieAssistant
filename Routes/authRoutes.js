@@ -95,7 +95,9 @@ module.exports = (app) => {
       await page.goto("https://www.youtube.com/");
 
       // Type into search box.
-      await page.type("#search-input input", "C++ Playlists");
+      let term = req.params.word;
+      term = term.replace(/\s/g, "-");
+      await page.type("#search-input input", `${term} playlists`);
       await page.click("#search-icon-legacy");
       await page.waitFor(2000);
 
@@ -116,7 +118,7 @@ module.exports = (app) => {
       //filter the selectors
       const newLinks = links
         .filter((el) => !el.includes("\n"))
-        .filter((el) => el.includes("C++"));
+        .filter((el) => el.includes(term));
       newLinks.map((el) => {
         return el.trim();
       });
