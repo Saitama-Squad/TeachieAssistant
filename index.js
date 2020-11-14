@@ -11,7 +11,10 @@ require("./Services/PassportOauth");
 const keys = require("./config/keys");
 const path = require("path");
 
-mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
+mongoose.connect(keys.mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 app.use(
   cors({

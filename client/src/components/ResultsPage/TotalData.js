@@ -8,17 +8,30 @@ import { connect } from "react-redux";
 
 let butTerm = null;
 class TotalData extends Component {
+  constructor(props) {
+    super(props);
+    this.buttonn = React.createRef();
+  }
   componentDidMount = () => {
     AOS.init({
       duration: 1000,
     });
   };
+  sleep = (ms) => {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  };
+
   state = { word: null };
-  onButtonClick = () => {
+  onButtonClick = async (event) => {
     butTerm = null;
-    this.setState({ word: "Goal Added😊" });
     console.log("button: " + this.props.results[0] + this.props.auth.googleId);
     this.props.addGoals(this.props.results[0], this.props.auth.googleId);
+    this.buttonn.current.innerHTML = "Goal Added😊";
+    this.buttonn.current.onClick = null;
+    await this.sleep(1000);
+    console.log(event);
+
+    this.buttonn.current.display = "inline";
   };
   render() {
     let term = this.props.results[0];
@@ -37,7 +50,11 @@ class TotalData extends Component {
         </ul>
         <div className="addgoalcontainer">
           {butTerm ? (
-            <button className="button" onClick={this.onButtonClick}>
+            <button
+              className="button"
+              onClick={(event) => this.onButtonClick(event)}
+              ref={this.buttonn}
+            >
               {term ? "Add " + term.toUpperCase() + " To Goals?" : term}
             </button>
           ) : (
