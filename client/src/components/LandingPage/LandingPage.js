@@ -17,10 +17,7 @@ class LandingPage extends Component {
           <div className="loginwrapper">
             <div className="linkkwrapper">
               <div className="lncontainer">
-                <a
-                  href="http://localhost:5000/auth/google"
-                  className="btn effect01"
-                >
+                <a href="/auth/google" className="btn effect01">
                   <span>Login</span>
                 </a>
               </div>
