@@ -27,7 +27,7 @@ module.exports = (app) => {
     req.logout();
     console.log(req.query);
     console.log("Logged out");
-    res.redirect("http://localhost:3000");
+    res.redirect("/home");
   });
 
   app.get("/api/current_user", (req, res) => {
