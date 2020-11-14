@@ -25,7 +25,7 @@ class App extends Component {
       <div className="appcontainer">
         <Router history={history}>
           {/* <Route path="/home/loading" exact component={LineLoader} /> */}
-          <Route path={"/eRrOrXxX"} exact component={Error} />
+          <Route path="/home/eRrOrXxX" component={Error} />
           <Route path="/" exact component={LandingPage} />
           <Route path="/profile" exact component={ProfilePage} />
           <Route path="/home" component={HomePage} />
