@@ -10,6 +10,7 @@ import Error from "./Error";
 import W3Container from "./components/ResultsPage/W3Container";
 import YTubeContainer from "./components/ResultsPage/YTubeContainer";
 import TotalData from "./components/ResultsPage/TotalData";
+import AboutPage from "./components/AboutPage/AboutPage";
 import "./App.css";
 // eslint-disable-next-line no-unused-vars
 const LineLoader = () => {
@@ -29,6 +30,7 @@ class App extends Component {
           <Route path="/" exact component={LandingPage} />
           <Route path="/profile" exact component={ProfilePage} />
           <Route path="/home" component={HomePage} />
+          <Route path="/AboutPage" exact component={AboutPage} />
           <Route path="/home/:word" component={TotalData} />
           <Route path="/home/:word/w3" component={W3Container} />
           <Route path="/home/:word/ytube" component={YTubeContainer} />
