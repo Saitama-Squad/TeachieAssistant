@@ -92,14 +92,22 @@ class AboutPage extends Component {
         <div class="header">
             <div  class = "header">
                   <h1>About the project</h1>
-                <div><br></br>
+                <div class="Def"><br></br>
                   Techie Assistant is ReactJS based web application which uses state of the art MERN Stack, Web Scraping tools and APIs to helps users to get the required online resources in a faster manner.</div>
                 <br></br>
                 <p> The problem Techie Assistant solves</p>
                 <br></br>
-                <p class="para">  Struggles In self Learning</p>
-                <p class="para">   No knowledge about resources</p>
-                <p class="para">   Don’t know where to start</p>  
+                <p class="para">Struggles In self Learning</p>
+                <p class="para">No knowledge about resources</p>
+                <p class="para">Don’t know where to start</p>  
+                <br></br>
+                <br></br>
+                <h2>Creators</h2>
+                <br></br>
+                <p><a href="https://www.linkedin.com/in/lokesh-n-n/">Lokesh N N</a></p>
+                <p><a href="https://www.linkedin.com/in/karun-anantharaman-3a24781b0/">Karan Anantharaman</a></p>
+                <p><a href="https://www.linkedin.com/in/arandeep-singh-376ba71b8/">Arandeep Singh</a></p>
+                <p><a href="https://www.linkedin.com/in/jayasooryan-saravanan-139256188/">Jayasooryan S</a></p>
             </div>
         </div>
         </div>
