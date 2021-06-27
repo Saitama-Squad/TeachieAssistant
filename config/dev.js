@@ -4,5 +4,5 @@ module.exports = {
   GOOGLE_CLIENT_SECRET: "VuqxVKSDJwjKTSHpl0m_k32c",
   mongoURI:
     "mongodb+srv://lokesh:lokesh123@cluster0.fpnbn.mongodb.net/Coursify?retryWrites=true&w=majority",
-  redirectDomain: "http://localhost:3000",
+  redirectDomain: "https://teachie-assistant.vercel.app/",
 };

@@ -20,7 +20,7 @@ module.exports = (app) => {
     "/auth/google/callback",
     passport.authenticate("google", { failureRedirect: "/error" }),
     function (req, res) {
-      res.redirect("https://hidden-forest-85036.herokuapp.com//home");
+      res.redirect("https://hidden-forest-85036.herokuapp.com/home");
     }
   );
   app.get("/api/logout", (req, res) => {
@@ -57,7 +57,7 @@ module.exports = (app) => {
 
   app.get("/results/:word", (req, res) => {
     try {
-      const nightmare = Nightmare({ show: true });
+      const nightmare = Nightmare({ show: false });
       let term = req.params.word;
       term = term.replace(/\s/g, "-");
       console.log(term);

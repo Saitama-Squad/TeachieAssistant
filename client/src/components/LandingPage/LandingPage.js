@@ -40,7 +40,7 @@ class LandingPage extends Component {
             <div className="linkkwrapper">
               <div className="lncontainer">
                 <a
-                  href="http://localhost:5000/api/logout"
+                  href="https://teachie-assistant.herokuapp.com/api/logout"
                   className="btn effect01"
                 >
                   <span>Logout</span>
