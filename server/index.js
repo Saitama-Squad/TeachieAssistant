@@ -6,6 +6,7 @@ const cors = require("cors");
 const morgan = require("morgan");
 const passport = require("passport");
 const bodyParser = require("body-parser");
+var timeout = require('connect-timeout')
 require("./models/UserInfo");
 require("./Services/PassportOauth");
 require('dotenv').config()
@@ -18,6 +19,7 @@ mongoose.connect(process.env.mongoURI, {
 
 const publicPath = path.join(__dirname,'..', 'client', 'build');
 app.use(express.static(publicPath));
+app.use(timeout('120s'))
 app.use(morgan("dev"));
 app.use(session({resave: false, saveUninitialized: true, secret: "SECRET",}));
 app.use(express.urlencoded({ extended: true }));
