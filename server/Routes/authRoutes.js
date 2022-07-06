@@ -7,9 +7,9 @@ const chalk = require("chalk");
 var i = 10;
 mongoose.connect(process.env.mongoURI, { useNewUrlParser: true });
 module.exports = (app) => {
-  app.get("/", function (req, res) {
-    res.render("pages/auth");
-  });
+  // app.get("/", function (req, res) {
+  //   res.render("pages/auth");
+  // });
 
   app.get(
     "/auth/google",
