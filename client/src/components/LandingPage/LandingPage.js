@@ -18,7 +18,7 @@ class LandingPage extends Component {
             <div className="linkkwrapper">
               <div className="lncontainer">
                 <a
-                  href="http://localhost:5000/auth/google"
+                  href="/auth/google"
                   className="btn effect01"
                 >
                   <span>Login</span>
@@ -43,7 +43,7 @@ class LandingPage extends Component {
             <div className="linkkwrapper">
               <div className="lncontainer">
                 <a
-                  href="http://localhost:5000/api/logout"
+                  href="/api/logout"
                   className="btn effect01"
                 >
                   <span>Logout</span>

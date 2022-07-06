@@ -8,46 +8,26 @@ const passport = require("passport");
 const bodyParser = require("body-parser");
 require("./models/UserInfo");
 require("./Services/PassportOauth");
-const keys = require("./config/keys");
+require('dotenv').config()
 const path = require("path");
 
-mongoose.connect(keys.mongoURI, {
+mongoose.connect(process.env.mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-    // allow to server to accept request from different origin
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true, // allow session cookie from browser to pass through
-  })
-);
+const publicPath = path.join(__dirname, '..', 'client', 'build');
+app.use(express.static(publicPath));
 app.use(morgan("dev"));
-app.use(
-  session({
-    resave: false,
-    saveUninitialized: true,
-    secret: "SECRET",
-  })
-);
+app.use(session({resave: false, saveUninitialized: true, secret: "SECRET",}));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
 app.use(passport.initialize());
 app.use(passport.session());
-
-// app.set("view engine", "ejs");
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 require("./Routes/authRoutes.js")(app);
-
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
-}
-
+app.get('*', (req, res) => {res.sendFile(path.join(publicPath, 'index.html'))});
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log("App listening on port " + port));

@@ -18,7 +18,7 @@ class NavBar extends Component {
             </div>
             <div>
               <a
-                href="http://localhost:5000/api/logout"
+                href="/api/logout"
                 className="navbar-menu-link btn-1"
               >
                 Logout

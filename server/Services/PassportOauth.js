@@ -1,7 +1,7 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
-const keys = require("../config/keys");
 const mongoose = require("mongoose");
+require('dotenv').config()
 
 const User = mongoose.model("users");
 passport.serializeUser(function (user, cb) {
@@ -19,7 +19,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:5000/auth/google/callback",
+      callbackURL: "/auth/google/callback",
       proxy: true,
     },
     async (accessToken, refreshToken, profile, done) => {

@@ -20,14 +20,14 @@ module.exports = (app) => {
     "/auth/google/callback",
     passport.authenticate("google", { failureRedirect: "/error" }),
     function (req, res) {
-      res.redirect("http://localhost:3000/home");
+      res.redirect("/home");
     }
   );
   app.get("/api/logout", (req, res) => {
     req.logout();
     console.log(req.query);
     console.log("Logged out");
-    res.redirect("http://localhost:3000");
+    res.redirect("/");
   });
 
   app.get("/api/current_user", (req, res) => {
@@ -52,7 +52,7 @@ module.exports = (app) => {
   });
 
   app.get("/results/:word", (req, res) => {
-    const nightmare = Nightmare({ show: true });
+    const nightmare = Nightmare({ show: false });
     let term = req.params.word;
     term = term.replace(/\s/g, "-");
     console.log(term);
@@ -89,7 +89,7 @@ module.exports = (app) => {
   });
   app.get("/ytresults/:word", (req, res) => {
     (async () => {
-      const browser = await puppeteer.launch({ headless: false });
+      const browser = await puppeteer.launch({ headless: true });
       const page = await browser.newPage();
     
       await page.goto("https://www.youtube.com/");
