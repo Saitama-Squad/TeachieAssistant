@@ -2,6 +2,7 @@ import React from "react";
 import "./Icon.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Icon from "./elearning.png"
 
 class MyImage extends React.Component {
   constructor(props) {
@@ -77,7 +78,7 @@ class MyImage extends React.Component {
         <div className="myphoto" ref={this.myphoto}>
           <div className="innerContainer" ref={this.inner}>
             <img
-              src="https://www.flaticon.com/svg/static/icons/svg/3048/3048358.svg"
+              src={Icon}
               alt="mypic"
               id="myphotojpg"
               data-aos="fade-down"

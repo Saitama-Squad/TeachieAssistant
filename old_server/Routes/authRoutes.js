@@ -2,9 +2,10 @@ const passport = require("passport");
 const Nightmare = require("nightmare");
 const cheerio = require("cheerio");
 const mongoose = require("mongoose");
-const keys = require("../config/keys");
+const puppeteer = require("puppeteer");
+const chalk = require("chalk");
 var i = 10;
-mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
+mongoose.connect(process.env.mongoURI, { useNewUrlParser: true });
 module.exports = (app) => {
   app.get("/", function (req, res) {
     res.render("pages/auth");
@@ -62,8 +63,8 @@ module.exports = (app) => {
       .goto("https://duckduckgo.com")
       .type("#search_form_input_homepage", `${term} site:w3schools.com`)
       .click("#search_button_homepage")
-      .wait("#r1-0 a.result__a")
-      .click("#r1-0 a.result__a")
+      .wait("#r1-0 a.eVNpHGjtxRBq_gLOfGDr")
+      .click("#r1-0 a.eVNpHGjtxRBq_gLOfGDr")
       .wait("body")
       .wait(2000)
       .evaluate(() => document.querySelector("body").innerHTML)
@@ -85,5 +86,49 @@ module.exports = (app) => {
       });
       return data;
     };
+  });
+  app.get("/ytresults/:word", (req, res) => {
+    (async () => {
+      const browser = await puppeteer.launch({ headless: false });
+      const page = await browser.newPage();
+    
+      await page.goto("https://www.youtube.com/");
+    
+      // Type into search box.
+      await page.type("#search-input input", "C++ Playlists");
+      await page.click("#search-icon-legacy");
+      await page.waitFor(2000);
+    
+      // Wait for contents to load
+      await page.waitForSelector("#contents");
+      await page.click("#content a.yt-simple-endpoint");
+      const resultsSelector = "#content a.yt-simple-endpoint";
+    
+      // get the selectors
+      const links = await page.evaluate((resultsSelector) => {
+        const anchors = Array.from(document.querySelectorAll(resultsSelector));
+        return anchors.map((anchor) => {
+          const title = anchor.textContent.split("|")[0].trim();
+          return `${title}: ${anchor.href}`;
+        });
+      }, resultsSelector);
+    
+      //filter the selectors
+      const newLinks = links
+        .filter((el) => !el.includes("\n"))
+        .filter((el) => el.includes("C++"));
+      newLinks.map((el) => {
+        return el.trim();
+      });
+      console.log(newLinks);
+      var num_link=5;
+      var i;
+      data=[]
+      for(i=1;i<=num_link;i++){
+        data.push(newLinks[i]);
+      }
+    res.send(data);
+      await browser.close();
+    })();
   });
 };
