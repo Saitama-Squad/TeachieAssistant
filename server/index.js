@@ -16,7 +16,7 @@ mongoose.connect(process.env.mongoURI, {
   useUnifiedTopology: true,
 });
 
-const publicPath = path.join(__dirname, '..', 'client', 'build');
+const publicPath = path.join(__dirname, 'client', 'build');
 app.use(express.static(publicPath));
 app.use(morgan("dev"));
 app.use(session({resave: false, saveUninitialized: true, secret: "SECRET",}));
